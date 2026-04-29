@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Olivia 💖</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffe6f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      position: absolute;
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background: #ff4d88;
+      color: white;
+      left: 30%;
+    }
+
+    #noBtn {
+      background: #ccc;
+      left: 55%;
+    }
+
+    #result {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1 id="question"></h1>
+
+  <div class="buttons" id="zone">
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 😢</button>
+  </div>
+
+  <div id="result">
+    <h2 id="resultText"></h2>
+  </div>
+</div>
+
+<script>
+  const name = "Olivia";
+
+  document.getElementById("question").innerText =
+    `${name}, will you be my Valentine? 💌`;
+
+  document.getElementById("resultText").innerText =
+    `YAY Olivia!!! 💖 I knew it 😍`;
+
+  const noBtn = document.getElementById("noBtn");
+  const zone = document.getElementById("zone");
+  const yesBtn = document.getElementById("yesBtn");
+
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 250;
+    const y = Math.random() * 100;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+
+  yesBtn.addEventListener("click", () => {
+    zone.style.display = "none";
+    document.getElementById("result").style.display = "block";
+    confetti();
+  });
+</script>
+
+</body>
+</html>
